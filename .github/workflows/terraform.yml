@@ -1,3 +1,9 @@
+
+          
+          github.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
 name: 'Terraform apply template'
 
 on:
@@ -10,17 +16,25 @@ on:
 #    secrets:
 #      env:
 #        required: true 
-
+     secrets:
+      env_aws_access_key_id:
+        required: true
+      env_aws_secret_access_key:
+        required: true
+      env_github_token:
+        required: true
         
 env:
     AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
     AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+    AWS_SESSION_TOKEN: ${{secrets.AWS_SESSION_TOKEN}}
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
  
 jobs:
   terraform:
     name: 'Terraform'
-    runs-on: ubuntu-latest 
+    runs-on: self-hosted 
 #    environment:  #Here is the name of your environment
    
         
@@ -98,7 +112,6 @@ jobs:
           \`\`\`\n
           ${process.env.PLAN}
           \`\`\`
-          
           </details>
           *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
           
