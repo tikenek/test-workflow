@@ -9,7 +9,7 @@ on:
       
 jobs:
   call-aws-terraform-noinfranchange:
-    uses: tikenek/reusable/.github/workflows/blank.yml@master
+    uses: tikenek/reusable/.github/workflows/terraform.yml@master
     secrets:
       env_aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
       env_aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
