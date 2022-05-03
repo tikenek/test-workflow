@@ -1,18 +1,31 @@
-name: Terraform apply workflow
+#name: Terraform apply workflow
+
+#on:
+#  push: 
+#    branches: [$default-branch]
+#  pull_request:
+#    branches: [$default-branch]
+#  workflow_dispatch:
+      
+#jobs:
+#  call-aws-terraform-noinfranchange:
+#    uses: tikenek/reusable/.github/workflows/terraform.yml@v1
+#    secrets:
+#      AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+#      AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+
+
+name: terraform
 
 on:
-  push: 
-    branches: [$default-branch]
-  pull_request:
-    branches: [$default-branch]
   workflow_dispatch:
-      
+
 jobs:
-  call-aws-terraform-noinfranchange:
+  deploy_terraform:
+    name: reuse
     uses: tikenek/reusable/.github/workflows/terraform.yml@v1
     secrets:
       AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
       AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-
-
+      
 
