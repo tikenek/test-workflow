@@ -27,7 +27,7 @@ env:
 jobs:
   terraform:
     name: 'Terraform'
-    runs-on: self-hosted 
+    runs-on: ubuntu-latest 
 #    environment:  #Here is the name of your environment
    
         
