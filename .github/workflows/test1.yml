@@ -14,3 +14,4 @@ jobs:
       env_aws_access_key_id: ${{secrets.AWS_ACCESS_KEY_ID}}
       env_aws_secret_access_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
       env_github_token: ""
+
