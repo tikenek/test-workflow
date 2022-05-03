@@ -1,20 +1,15 @@
-name: Reuse
+name: Terraform apply workflow
 
 on:
+  push: 
+    branches: [$default-branch]
+  pull_request:
+    branches: [$default-branch]
   workflow_dispatch:
-  
+      
 jobs:
-  do-it:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - uses: actions/checkout@v1
-      
-      - name: Reuse workflow
-      
-
   call-aws-terraform-noinfranchange:
-    uses: tikenek/github_actions/.github/workflows/terraform-template.yml@v1
+    uses: tikenek/github_actions/.github/workflows/terraform-template.yml@vmaster
     secrets:
       AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
       AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
